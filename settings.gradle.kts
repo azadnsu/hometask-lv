@@ -1,1 +1,1 @@
-rootProject.name = "petstore-api-tests"
+rootProject.name = "hometask-lv"
