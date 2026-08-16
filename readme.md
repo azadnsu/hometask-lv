@@ -79,9 +79,24 @@ The UI test uses the Page Object Model to separate page interactions from test l
 
 ```PWDEBUG=1 ./gradlew test --tests '*FinancialReportsTest'``` Debug mode
 
-# Test Report 
+## Standard Gradle test report
 
-```build/reports/tests/test/index.html```
+``````build/reports/tests/test/index.html```
+
+## Allure Report
+
+Generate and view the Allure report (includes API request/response details):
+
+`````./gradlew allureReport --depends-on-tests```
+
+Report output:
+
+````build/reports/allure-report/allureReport/index.html```
+
+Or generate and open in one step:
+
+```./gradlew allureServe --depends-on-tests```
+```
 
 
 
