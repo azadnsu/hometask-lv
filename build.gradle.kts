@@ -3,6 +3,11 @@ plugins {
     id("io.qameta.allure") version "4.1.0"
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
