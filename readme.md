@@ -97,7 +97,3 @@ Or generate and open in one step:
 
 ```./gradlew allureServe --depends-on-tests```
 ```
-
-
-
-
