@@ -27,7 +27,7 @@ class FinancialReportsTest {
 
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
-                        .setHeadless(false)
+                        .setHeadless(true)
         );
 
         context = browser.newContext();
