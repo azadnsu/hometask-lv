@@ -33,6 +33,9 @@ dependencies {
     //Allure for RestAssured
     testImplementation("io.qameta.allure:allure-rest-assured:2.35.2")
 
+    //Allure for Playwright
+    testImplementation("io.qameta.allure:allure-playwright:2.35.2")
+
 
 }
 allure {

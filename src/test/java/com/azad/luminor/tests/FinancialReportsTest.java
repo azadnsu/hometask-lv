@@ -13,6 +13,8 @@ import java.util.regex.Pattern;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import io.qameta.allure.playwright.AllurePlaywright;
+import io.qameta.allure.playwright.TraceSession;
 
 class FinancialReportsTest {
 
@@ -20,6 +22,7 @@ class FinancialReportsTest {
     static Browser browser;
     private static BrowserContext context;
     private static Page page;
+    private static TraceSession trace;
 
     @BeforeAll
     static void setup() {
@@ -32,27 +35,21 @@ class FinancialReportsTest {
 
         context = browser.newContext();
 
-        context.tracing().start(
-                new Tracing.StartOptions()
-                        .setScreenshots(true)
-                        .setSnapshots(true)
-                        .setSources(true)
-        );
-
         page = context.newPage();
+    }
+
+    @BeforeEach
+    void beforeEach() {
+        trace = AllurePlaywright.startTracing("Playwright Trace", context);
+    }
+
+    @AfterEach
+    void afterEach() {
+        trace.close();
     }
 
     @AfterAll
     static void tearDown() {
-        context.tracing().stop(
-                new Tracing.StopOptions()
-                        .setPath(Paths.get(
-                                "build/playwright-traces/"
-                                        + UUID.randomUUID()
-                                        + ".zip"
-                        ))
-        );
-
         context.close();
         browser.close();
         playwright.close();
