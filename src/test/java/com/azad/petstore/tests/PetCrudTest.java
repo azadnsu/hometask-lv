@@ -2,6 +2,7 @@ package com.azad.petstore.tests;
 
 import com.azad.petstore.api.PetApi;
 import com.azad.petstore.data.PetTestData;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 
@@ -20,6 +21,7 @@ class PetCrudTest {
     @BeforeAll
     static void beforeAll() {
         pet = PetTestData.createPet();
+        RestAssured.useRelaxedHTTPSValidation();
     }
 
     @Test
