@@ -42,16 +42,13 @@ tasks.test {
     }
 }
 
-tasks.register<JavaExec>("codegenLuminor") {
+tasks.register<JavaExec>("playwrightInstall") {
     group = "playwright"
-    description = "Record Luminor UI test with Playwright Codegen"
+    description = "Install Playwright browsers"
 
     classpath = sourceSets["test"].runtimeClasspath
     mainClass.set("com.microsoft.playwright.CLI")
 
-    args(
-        "codegen",
-        "--browser=chromium",
-        "https://luminor.lv/en"
-    )
+    args("install", "chromium")
 }
+

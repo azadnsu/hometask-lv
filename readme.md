@@ -65,9 +65,13 @@ The test scenario:
 
 The UI test uses the Page Object Model to separate page interactions from test logic.
 
-# Run all tests
+# Setup
 
-```./gradlew clean test```
+- Clone repository: ```git clone https://github.com/azadnsu/hometask-lv.git``` 
+
+- Install Playwright browser if not installed: ```./gradlew playwrightInstall```
+
+- Run tests: ```./gradlew clean test``` 
 
 # Run API tests only 
 
@@ -77,11 +81,11 @@ The UI test uses the Page Object Model to separate page interactions from test l
 
 ```./gradlew test --tests '*FinancialReportsTest'```
 
-```PWDEBUG=1 ./gradlew test --tests '*FinancialReportsTest'``` Debug mode
+Debug mode:  ```PWDEBUG=1 ./gradlew test --tests '*FinancialReportsTest'``` 
 
 ## Standard Gradle test report
 
-``````build/reports/tests/test/index.html```
+```build/reports/tests/test/index.html```
 
 ## Allure Report
 
