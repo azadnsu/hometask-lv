@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("io.qameta.allure") version "4.1.0"
 }
 
 group = "org.example"
@@ -24,7 +25,13 @@ dependencies {
     // Source: https://mvnrepository.com/artifact/com.microsoft.playwright/playwright
     implementation("com.microsoft.playwright:playwright:1.62.0")
 
+    //Allure for RestAssured
+    testImplementation("io.qameta.allure:allure-rest-assured:2.35.2")
 
+
+}
+allure {
+    version.set("2.45.0") // pin to Allure 2 report (Allure 3 is the plugin's default)
 }
 
 tasks.test {

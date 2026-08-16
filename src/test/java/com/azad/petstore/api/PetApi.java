@@ -1,6 +1,7 @@
 package com.azad.petstore.api;
 
 import com.azad.petstore.config.TestConfig;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 
 import java.util.Map;
@@ -12,6 +13,7 @@ public class PetApi {
     public Response createPet(Map<String, Object> pet) {
 
         return given()
+                .filter(new AllureRestAssured())
                 .baseUri(TestConfig.PETSTORE_BASE_URL)
                 .contentType("application/json")
                 .accept("application/json")
@@ -25,6 +27,7 @@ public class PetApi {
     public Response getPet(int petId) {
 
         return given()
+                .filter(new AllureRestAssured())
                 .baseUri(TestConfig.PETSTORE_BASE_URL)
                 .accept("application/json")
                 .log().all()
@@ -36,6 +39,7 @@ public class PetApi {
     public Response updatePet(Map<String, Object> pet) {
 
         return given()
+                .filter(new AllureRestAssured())
                 .baseUri(TestConfig.PETSTORE_BASE_URL)
                 .contentType("application/json")
                 .accept("application/json")
@@ -49,6 +53,7 @@ public class PetApi {
     public Response deletePet(int petId) {
 
         return given()
+                .filter(new AllureRestAssured())
                 .baseUri(TestConfig.PETSTORE_BASE_URL)
                 .accept("application/json")
                 .log().all()
